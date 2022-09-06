@@ -456,7 +456,7 @@ export const menuEntries = [
 			{
 				id: uniqueID(),
 				title: "404 Error Page",
-				page: "/url_to_test_404_error"
+				// page: "/url_to_test_404_error"
 			},
 			{
 				id: uniqueID(),

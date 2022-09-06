@@ -1,6 +1,6 @@
 <template>
 	<div id="sc-page-wrapper">
-		<div id="sc-page-content">
+		<!-- <div id="sc-page-content">
 			<ScCard>
 				<ScCardBody>
 					<div>
@@ -14,18 +14,18 @@
 					</a>
 				</ScCardBody>
 			</ScCard>
-		</div>
+		</div> -->
 	</div>
 </template>
 
 <script>
-export default {
-	async asyncData ({ params, $axios }) {
-		const user = await await $axios.$get('/api/user')
-		return { user }
-	},
-	data: () => ({
-		user: {}
-	})
-}
+// export default {
+// 	async asyncData ({ params, $axios }) {
+// 		const user = await await $axios.$get('/api/user')
+// 		return { user }
+// 	},
+// 	data: () => ({
+// 		user: {}
+// 	})
+// }
 </script>
