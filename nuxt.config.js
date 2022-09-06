@@ -1,15 +1,15 @@
 /* options */
 
 const mode = 'universal'; // universal/spa
-const serveFromSubFolder = false;
+const serveFromSubFolder = true;
 
 /* options end */
 
-const pkg = require('./package');
-const path = require('path');
+const pkg = require( './package' );
+const path = require( 'path' );
 
 let dist = '';
-if(mode === 'universal') {
+if ( mode === 'universal' ) {
 	dist = 'scutum-universal'
 } else {
 	dist = 'scutum-spa'
@@ -39,18 +39,18 @@ module.exports = {
 			}
 		],
 		script: [
-			{ src: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/vendor/uikit.min.js'}
+			{ src: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/vendor/uikit.min.js' }
 		],
 		link: [
-			{ rel: 'icon', type: 'image/x-icon', href: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' :  '/' + dist ) + '/favicon.ico'},
-			{ rel: 'preload', href: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist) + '/vendor/uikit.min.js', as: 'script' },
-			{ rel: 'preload', href: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist) + '/fonts/roboto_base64.css', as: 'style' },
-			{ rel: 'preload', href: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist) + '/fonts/sourceCodePro_base64.css', as: 'style' },
-			{ rel: 'preload', href: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist) + '/fonts/mdi/css/materialdesignicons.css', as: 'style' },
+			{ rel: 'icon', type: 'image/x-icon', href: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/favicon.ico' },
+			{ rel: 'preload', href: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/vendor/uikit.min.js', as: 'script' },
+			{ rel: 'preload', href: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/fonts/roboto_base64.css', as: 'style' },
+			{ rel: 'preload', href: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/fonts/sourceCodePro_base64.css', as: 'style' },
+			{ rel: 'preload', href: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/fonts/mdi/css/materialdesignicons.css', as: 'style' },
 			/// fonts
-			{ rel: 'stylesheet', href: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist) + '/fonts/roboto_base64.css' },
-			{ rel: 'stylesheet', href: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist) + '/fonts/sourceCodePro_base64.css' },
-			{ rel: 'stylesheet', href: (process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist) + '/fonts/mdi/css/materialdesignicons.css' }
+			{ rel: 'stylesheet', href: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/fonts/roboto_base64.css' },
+			{ rel: 'stylesheet', href: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/fonts/sourceCodePro_base64.css' },
+			{ rel: 'stylesheet', href: ( process.env.NODE_ENV !== 'production' || !serveFromSubFolder ? '' : '/' + dist ) + '/fonts/mdi/css/materialdesignicons.css' }
 		]
 	},
 	/*
@@ -126,7 +126,7 @@ module.exports = {
 		// '@nuxtjs/webpack-profile'
 	],
 	googleAnalytics: {
-		id: (mode === 'universal') ? 'UA-136690566-3' : 'UA-136690566-4',
+		id: ( mode === 'universal' ) ? 'UA-136690566-3' : 'UA-136690566-4',
 		// disable for development
 		dev: process.env.NODE_ENV !== 'production'
 	},
@@ -233,8 +233,8 @@ module.exports = {
 				"assets/js/vendor"
 			]
 		},
-		extend (config, ctx) {
-			if (ctx.isDev && ctx.isClient) {
+		extend ( config, ctx ) {
+			if ( ctx.isDev && ctx.isClient ) {
 				config.module.rules.push(
 					// Run ESLint on save
 					{
@@ -246,9 +246,9 @@ module.exports = {
 				);
 			}
 			// aliases
-			config.resolve.alias['scss'] = path.resolve(__dirname, './assets/scss');
+			config.resolve.alias['scss'] = path.resolve( __dirname, './assets/scss' );
 			// adjust path when serving app from sub-folder
-			if (!ctx.isDev && serveFromSubFolder) {
+			if ( !ctx.isDev && serveFromSubFolder ) {
 				config.output.publicPath = '/' + dist + '/_nuxt/';
 			}
 			return config;
