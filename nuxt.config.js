@@ -1,7 +1,7 @@
 /* options */
 
 const mode = 'universal'; // universal/spa
-const serveFromSubFolder = true;
+const serveFromSubFolder = false;
 
 /* options end */
 
